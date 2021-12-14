@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,12 @@ Route::get('/create', [BookController::class, 'getCreatePage'])->name('getCreate
 Route::post('/create-book', [BookController::class, 'createBook'])->name('createBook');
 
 Route::get('/get-book', [BookController::class, 'getBook'])->name('getBook');
+
+Route::get('/update-book/{id}', [BookController::class, 'getBookById'])->name('getBookById');
+
+Route::patch('/update-book/{id}' , [BookController::class, 'updateBook'])->name('updateBook');
+
+Route::delete('/delete/{id}',[BookController::class, 'deleteBook'])->name('delete');
 
 Route::get('/hello', function () {
     echo 'Hello World';
