@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\bookRequest;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,7 @@ class BookController extends Controller
         return view('create');
     }
 
-    public function createBook(Request $request){
+    public function createBook(bookRequest $request){
         Book::create([
             'title' =>  $request->title,
             'author' =>  $request->author,
@@ -19,7 +20,7 @@ class BookController extends Controller
             'price' =>  $request->price,
         ]);
 
-        return redirect(route('getCreatePage'));
+        return redirect(route('getBook'));
     }
 
     public function getBook(){

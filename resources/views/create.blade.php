@@ -41,6 +41,12 @@
             <input name="price" type="numeric" class="form-control" id="formGroupExampleInput"
                 placeholder="Example input placeholder">
         </div>
+
+        {{-- Untuk error message cara 1 (cara 2 ada di folder requset function message--}}
+        {{-- btw yg ke print pas error tuh yang di cara 2 --}}
+        @error('price')
+            <div class="alert alert-danger">{{$message}}</div>
+        @enderror
         <button type="submit" class="btn btn-success">Insert</button>
     </form>
 

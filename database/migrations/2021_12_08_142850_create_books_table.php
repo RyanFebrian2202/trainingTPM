@@ -11,7 +11,7 @@ class CreateBooksTable extends Migration
      *
      * @return void
      */
-    //id, title, author, release, prize 
+    //id, title, author, release, prize
     public function up()
     {
         Schema::create('books', function (Blueprint $table) {
@@ -24,6 +24,8 @@ class CreateBooksTable extends Migration
             // $table->string('title')->unique();
             //unique tuh gk blh ada yg sama jd kalo udh moon gbs moon lg
             $table->integer('price');
+            $table->unsignedBigInteger('genreId');
+            $table->foreign('genreId')->references('id')->on('genres');
             $table->timestamps();
         });
     }
